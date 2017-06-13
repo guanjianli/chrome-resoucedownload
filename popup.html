@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>资源下载监控</title>
+<style>
+	html,body,div,h1,a,p,ul,li,input,label{padding:0;margin:0;}
+	body{
+		font-size:14px;
+	}
+	h1{
+		border-top: 1px solid #9cc2ef;
+		background-color: #ebeff9;
+		padding:8px 10px;
+		margin:5px 0 0 0;
+		font-size: 110%;
+	}
+	author{float:right;color:#ebeff9;}
+	#content{
+		min-height:240px;
+		max-height:460px;
+		width:660px;
+	}
+	input[type=checkbox]{
+		-webkit-appearance: none;
+		border: solid 1px #bbb;
+		border-color: #bbb #ccc #ccc #bbb;
+		width: 12px;height: 12px;line-height: 10px;
+		border-radius: 1px;
+		background: #fff;
+	}
+	input:checked{
+		border:solid 1px #FF8400;
+	}
+	input:checked::after{
+		margin: 2px;
+		content: '';display: inline-block;
+		width: 6px;height: 6px;
+		border-radius: 1px;
+		background:#FF8400;
+	}
+
+	li{
+		list-style:none;
+	}
+	input[type=checkbox]{
+		margin-right:4px;
+	}
+	input, label{
+		vertical-align:middle;
+	}
+
+	.clear{clear:both;}
+
+	#filterBox{
+		padding:0 10px 10px 10px;
+	}
+	#filterBox li{
+		display:inline-block;
+		margin:5px 10px 5px 0;
+	}
+	#filterBox input:checked{
+		border-color:#70b62d;
+	}
+	#filterBox input:checked::after{
+		background:#70B62D;
+	}
+	#scriptList{
+		width:97%;
+		margin:0 auto;
+		padding-bottom:15px;
+	}
+	#scriptList li{
+		padding:2px 0;
+		font-size:105%;
+		color:#555;
+	}
+	.button{
+		display:inline-block;
+		text-decoration: none;
+		border:1px solid #ccc;
+		padding:8px 12px;
+		color:#1687BF;
+	}
+	.button:hover{
+		background:#04A1EC;
+		color:#fff;
+	}
+	#nav{
+		padding:15px 0 5px 10px;
+	}
+	.totalCount{float:right;margin:5px 15px 0 0;}
+	.wtip{padding:10px 0 0 0px;}
+	.tip{display:inline-block;width:10px;height:10px;margin:0 2px 0 2px;}
+	.tdoing{background:#52D121;color:#52D121;}
+	.tsuccess{background:#34B9DA;color:#34B9DA;}
+	.tfail{background:#FF0000;color:#FF0000;}
+	#selectCount, #downloadCount, #downloadFailCount{padding-left:15px;}
+</style>
+
+</head>
+<body>
+	<h1>
+		资源监控下载
+		<author>畔(384858402@qq.com)</author>
+	</h1>
+	<div id="nav">
+		<a href="javascript:;" class="button" id="beginToListener">开始加载</a>
+		<a href="javascript:;" class="button" id="loadCacheData">加载已有数据</a>
+		<a href="javascript:;" class="button" id="stopLoading">停止加载</a>
+		<a href="javascript:;" class="button" id="download">下载</a>
+		<span class="totalCount">总数据量:<span id="count">0</span></span>
+		<div class="wtip">
+			<span class="tip tdoing"></span>正在下载
+			<span class="tip tsuccess"></span>下载成功
+			<span class="tip tfail"></span>下载失败
+			<span id="selectCount">已选择:0</span>
+			<span id="downloadCount">已下载:0</span>
+			<span id="downloadFailCount">下载失败:0</span>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<ul id="filterBox"></ul>
+	<div class="clear"></div>
+	<div id="content">
+		<ul id="scriptList" class="list">
+			<!--<li>
+				<input type="checkbox" /><label>链接</label>
+			</li>-->
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src="zip.js"></script>
+<script type="text/javascript" src="dataview.js"></script>
+<script src="popup.js"></script>
+</html>
